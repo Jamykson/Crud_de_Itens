@@ -8,38 +8,9 @@ function Login({ onAlterarModo }) {
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState(null);
 
-  async function handleLogin() {
-    setErro(null);
-    if (!usuario || !senha) {
-      setErro("Preencha usuário e senha.");
-      return;
-    }
-
-    try {
-      const response = await fetch("http://localhost:8085/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ usuario, senha }),
-      });
-
-      if (response.status === 401) {
-        setErro("Usuário ou senha inválidos.");
-        return;
-      }
-
-      if (!response.ok) {
-        setErro("Erro no servidor.");
-        return;
-      }
-
-      const conta = await response.json();
-      localStorage.setItem("contaLogada", JSON.stringify(conta));
-      navigate("/home");
-    } catch {
-      setErro("Erro ao conectar com o servidor.");
-    }
-  }
-
+  function handleLogin() {
+  navigate("/home");
+}
   return (
     <>
       <div className="bg-[#016ca5] text-[#F2B32B] pb-1 md:pb-3 lg:pb-5 w-9/12 max-w-100 rounded-3xl h-full max-h-80 flex flex-col items-center justify-around">

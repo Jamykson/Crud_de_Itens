@@ -17,7 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <LoginPage />,
+    element: <LoginPage />, // <-- Esta linha faz o site começar no login
   },
   {
     path: "/inventory",
